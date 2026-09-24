@@ -1,8 +1,21 @@
+:root {
+    --bg-colour: rgb(20, 20, 20);
+    --countdown-colour: rgb(25, 25, 25);
+    --text-colour: rgb(200, 200, 200);
+    --text2-colour: rgb(160, 160, 160);
+    --border-colour: rgb(40, 40, 40);
+}
+
 body {
-    background-color: rgb(20,20,20);
+    background-color: var(--bg-colour);
     min-height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+* {
+    font-family: sans-serif;
+    color: var(--text-colour);
 }

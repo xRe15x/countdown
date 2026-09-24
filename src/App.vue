@@ -1,7 +1,7 @@
-<script setup></script>
+<script setup>
+import Countdown from './components/Countdown.vue';
+</script>
 
 <template>
-  <h1>App</h1>
+    <Countdown />
 </template>
-
-<style scoped></style>
