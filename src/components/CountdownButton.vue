@@ -13,4 +13,8 @@ button {
     font-size: 1rem;
     min-width: 80px;
 }
+
+button:hover {
+    background-color: rgb(28, 28, 28);
+}
 </style>

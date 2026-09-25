@@ -12,7 +12,7 @@ defineProps({
 
 <template>
     <div class="countdown-unit">
-        <input type="text" class="time" v-model="modelValue" :readonly="isReadOnly">
+        <input type="text" class="time" v-model="modelValue" :readonly="isReadOnly" maxlength="2">
         <CountdownSeparator v-if="separator" />
         <div v-else></div>
         <div class="unit">{{ unit }}</div>
@@ -37,5 +37,9 @@ defineProps({
     border: none;
     font-size: inherit;
     width: 5.5rem;
+}
+
+.time:focus {
+    outline: none;
 }
 </style>

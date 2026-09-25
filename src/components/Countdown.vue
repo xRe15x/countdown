@@ -5,8 +5,8 @@ import CountdownUnit from './CountdownUnit.vue';
 import CountdownButton from './CountdownButton.vue';
 
 let time = reactive({
-    second: 5,
-    minute: 1,
+    second: 0,
+    minute: 0,
     hour: 0,
     day: 0
 })
@@ -39,10 +39,25 @@ function decreaseTime() {
     // );
 }
 
-const getDay = computed(() => String(Math.floor(time.day)).padStart(2, "0"));
-const getHour = computed(() => String(Math.floor(time.hour)).padStart(2, "0"));
-const getMinute = computed(() => String(Math.floor(time.minute)).padStart(2, "0"));
-const getSeconds = computed(() => String(time.second).padStart(2, "0"));
+const getDay = computed({
+    get: () => String(Math.floor(time.day)).padStart(2, "0"),
+    set: (newValue) => time.day = newValue >= 0 && newValue < 100 ? newValue : 0
+});
+
+const getHour = computed({
+    get: () => String(Math.floor(time.hour)).padStart(2, "0"),
+    set: (newValue) => time.hour = newValue >= 0 && newValue < 24 ? newValue : 0
+});
+
+const getMinute = computed({
+    get: () => String(Math.floor(time.minute)).padStart(2, "0"),
+    set: (newValue) => time.minute = newValue >= 0 && newValue < 60 ? newValue : 0
+});
+
+const getSeconds = computed({
+    get: () => String(time.second).padStart(2, "0"),
+    set: (newValue) => time.second = newValue >= 0 && newValue < 60 ? newValue : 0
+});
 
 setInterval(() => {
     if (running.value == false) return;
